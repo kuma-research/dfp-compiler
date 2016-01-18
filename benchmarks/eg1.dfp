@@ -1,0 +1,14 @@
+
+dfg d1 {
+  In t[];
+  Add b1[t 3];
+  Out o[b1];
+};
+
+dfg d2 {
+  In x[];
+  Mult b1[x 3];
+  Out o[b1];
+};
+
+d1[o]->d2[x];
