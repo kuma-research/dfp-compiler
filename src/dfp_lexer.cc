@@ -61,15 +61,18 @@ Token *Lexer::scan() {
              isdigit(peek)); // remain the same state if alphanumeric
     const char *ss = buf.c_str();
 
-    std::cout << buf << std::endl;
+    // std::cout << buf << std::endl;
     Word *w = words[(char *)ss];
-    if (!w) {
-      std::cout << buf << " is reserved" << std::endl;
+    if (w != NULL) {
+      // std::cout << w->lexeme << " " << w->tag << " is in table" << std::endl;
       return w;
     }
 
     w = new Word(ss, ID);
     words[(char *)ss] = w;
+    // std::cout << w->lexeme << " " << w->tag << " is saved as id" <<
+    // std::endl;
+
     return w;
   }
 
