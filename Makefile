@@ -1,32 +1,31 @@
 
 SRC=src
 BIN=bin
+LIB=lib
 INCLUDE=include
 
-YACC=yacc
-LEX=lex
 
 CC=gcc
-CFLAGS=-I$(SRC)
+CFLAGS=-I$(INCLUDE)
 
 CXX=g++
-CXXFLAGS=-L/usr/local/lib -I$(INCLUDE) -I$(SRC) -ll
+CXXFLAGS=-I$(INCLUDE)
 
-all: parser
+DEPS=\
+	$(INCLUDE)/dfp.hh \
+	$(INCLUDE)/dfp_parser.hh \
+	$(INCLUDE)/dfp_lexer.hh	
 
-$(SRC)/lex.yy.c: $(SRC)/lexer.l
-	$(LEX) $(SRC)/lexer.l
+OBJS=\
+	$(BIN)/main.o \
+	$(BIN)/dfp.o 	\
+	$(BIN)/dfp_parser.o \
+	$(BIN)/dfp_lexer.o
 
-$(SRC)/parser.cc: $(SRC)/parser.y
-	$(YACC) --debug -d $(SRC)/parser.y -o $(SRC)/parser.cc
+$(BIN)/%.o: $(SRC)/%.cc $(DEPS)
+	$(CXX) -c $< -o $@ $(CXXFLAGS)
 
-$(BIN)/lex.yy.o: $(SRC)/lex.yy.c $(SRC)/parser.hh
-	$(CC) -c $(SRC)/lex.yy.c -o $(BIN)/lex.yy.o $(CFLAGS)
+dfp: $(OBJS)
+	$(CXX) -o $@ $(OBJS)
 
-parser: $(SRC)/parser.cc $(BIN)/lex.yy.o
-	$(CXX) -o $@ $(SRC)/parser.cc $(BIN)/lex.yy.o $(CXXFLAGS)
-
-clean:
-	rm $(BIN)/*
-	rm $(SRC)/*.cc $(SRC)/*.hh $(SRC)/*.c
-	rm parser
+all: dfp
