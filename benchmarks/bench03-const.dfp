@@ -1,0 +1,8 @@
+
+dfg g {
+    Add t1 [1 2];
+    Add t2 [3 4];
+    Add t3 [t1 t2];
+    Out o1 [t1];
+    Out o2 [t3];
+};

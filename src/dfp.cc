@@ -109,6 +109,65 @@ int Compiler::optimize() {
         }
       }
     } while (is_changed);
+
+    // Optimize pass #3: remove same expressions
+    for (auto gp : dfp->graphs) {
+      Graph *g = gp.second;
+      bool is_changed = false;
+      do {
+        is_changed = false;
+        for (auto np1 : g->nt) {
+          Node *n1 = np1.second;
+          if (!n1->isBinary())
+            continue;
+
+          Value *v1 = n1->vl[0];
+          Value *v2 = n1->vl[1];
+          if (v1->type == IntType && v2->type == IntType) {
+            IntValue *iv1 = (IntValue *)v1;
+            IntValue *iv2 = (IntValue *)v2;
+            int result = 0;
+            switch (n1->type) {
+            case Add:
+              result = iv1->value + iv2->value;
+              break;
+            case Sub:
+              result = iv1->value - iv2->value;
+              break;
+            case Mult:
+              result = iv1->value * iv2->value;
+              break;
+            case Div:
+              result = iv1->value / iv2->value;
+              break;
+            default:
+              break; // This will not happen.
+            }
+
+            for (auto np2 : g->nt) {
+              Node *n2 = np2.second;
+              if (n2->id == n1->id)
+                continue;
+
+              for (int i = 0; i < n2->vl.size(); i++) {
+                Value *v = n2->vl[i];
+                if (v->type == StrType) {
+                  StrValue *sv = (StrValue *)v;
+                  if (sv->value == n1->id) {
+                    // by creating a new node, replaced the old one
+                    n2->vl[i] = new IntValue(new Num(result));
+                    is_changed = true;
+                  }
+                }
+              }
+            }
+
+            g->nt.erase(n1->id);
+            break;
+          }
+        }
+      } while (is_changed);
+    }
   }
 
   return 0;
