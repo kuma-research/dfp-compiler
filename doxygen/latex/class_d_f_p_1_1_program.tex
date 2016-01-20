@@ -1,0 +1,52 @@
+\hypertarget{class_d_f_p_1_1_program}{}\section{D\+FP\+:\+:Program Class Reference}
+\label{class_d_f_p_1_1_program}\index{D\+F\+P\+::\+Program@{D\+F\+P\+::\+Program}}
+
+
+\hyperlink{class_d_f_p_1_1_program}{Program} contains references to Graphs and Nodes.  
+
+
+
+
+{\ttfamily \#include $<$dfp\+\_\+program.\+hh$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::map$<$ string\+\_\+t, int $>$ {\bfseries report\+\_\+t}\hypertarget{class_d_f_p_1_1_program_aeaaa020ec93ac51b61399ba349e6ca64}{}\label{class_d_f_p_1_1_program_aeaaa020ec93ac51b61399ba349e6ca64}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Program} (\hyperlink{class_d_f_p_1_1_graph_ae35638adb932f3b7fd545ac09ea34c5a}{Graph\+::graphtable\+\_\+t} \&gs, \hyperlink{class_d_f_p_1_1_edge_a71ccd1900dbfda5591981064738f60af}{Edge\+::edgelist\+\_\+t} \&es)\hypertarget{class_d_f_p_1_1_program_a08995326789c0e0fdea41d36fc90584c}{}\label{class_d_f_p_1_1_program_a08995326789c0e0fdea41d36fc90584c}
+
+\item 
+report\+\_\+t \hyperlink{class_d_f_p_1_1_program_a0e2b0b5a6fd02902742c1728679872e9}{get\+Report} ()\hypertarget{class_d_f_p_1_1_program_a0e2b0b5a6fd02902742c1728679872e9}{}\label{class_d_f_p_1_1_program_a0e2b0b5a6fd02902742c1728679872e9}
+
+\begin{DoxyCompactList}\small\item\em Get total number of binary nodes in all graphs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_d_f_p_1_1_graph_ae35638adb932f3b7fd545ac09ea34c5a}{Graph\+::graphtable\+\_\+t} {\bfseries graphs}\hypertarget{class_d_f_p_1_1_program_a2a5742b3d9dfa492901729b919c22abc}{}\label{class_d_f_p_1_1_program_a2a5742b3d9dfa492901729b919c22abc}
+
+\item 
+\hyperlink{class_d_f_p_1_1_edge_a71ccd1900dbfda5591981064738f60af}{Edge\+::edgelist\+\_\+t} {\bfseries edges}\hypertarget{class_d_f_p_1_1_program_a4356cd8b3396652e8fde0104d980f176}{}\label{class_d_f_p_1_1_program_a4356cd8b3396652e8fde0104d980f176}
+
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, const \hyperlink{class_d_f_p_1_1_program}{Program} \&dfg)\hypertarget{class_d_f_p_1_1_program_a72cc270a3f767cf145203704dfe87d11}{}\label{class_d_f_p_1_1_program_a72cc270a3f767cf145203704dfe87d11}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_d_f_p_1_1_program}{Program} contains references to Graphs and Nodes. 
+
+Each \hyperlink{class_d_f_p_1_1_program}{Program} has a hash table of Graphs and a list of Nodes. It\textquotesingle{}s the main object we need to handle with after the parser. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/dfp\+\_\+program.\+hh\item 
+src/dfp\+\_\+program.\+cc\end{DoxyCompactItemize}

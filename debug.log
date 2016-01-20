@@ -1,0 +1,26 @@
+parsed 1 graphs and 0 edges
+d1 is output.
+dfg 	g1	{
+  Out	d1	[ y1 ];
+  In	x1	[ ];
+  In	x2	[ ];
+  Sub	y1	[ x1 x2 ];
+};
+
+
+dfg 	g1	{
+  Out	d1	[ y1 ];
+  In	x1	[ ];
+  In	x2	[ ];
+  Sub	y1	[ x1 x2 ];
+};
+
+
+dfg 	g1	{
+  Out	d1	[ y1 ];
+  In	x1	[ ];
+  In	x2	[ ];
+  Sub	y1	[ x1 x2 ];
+};
+
+

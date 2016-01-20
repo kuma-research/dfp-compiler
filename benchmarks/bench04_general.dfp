@@ -1,0 +1,27 @@
+
+dfg g1 {
+  In x1[];
+  In x2[];
+  Sub y1 [x1 x2];
+  Add y2 [1 2];
+  Add y3 [1 2];
+
+  Mult z1 [y2 y3];
+
+  Div t1 [z1 y3];
+
+  Out d1[y1];
+  Out d2[y2];
+  Out d3[y3];
+  Out d4[t1];
+};
+
+dfg g2 {
+  In x1[];
+  In x2[];
+  Mult y1 [x1 x2];
+  Mult y2 [x1 x2];
+  Add z1 [y1 y2];
+
+  Out d4[z1];
+};

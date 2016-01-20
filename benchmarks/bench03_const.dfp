@@ -1,0 +1,12 @@
+
+dfg g {
+    Add x1 [1 2];
+    Add x2 [3 4];
+    Sub y1 [2 6];
+    Sub y2 [3 9];
+    Add z1 [x1 x2];
+    Mult z2 [y1 y2];
+    Add z3 [z1 z2];
+    Out o1 [y1];
+    Out o2 [z3];
+};

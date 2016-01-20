@@ -1,0 +1,81 @@
+This is a tiny D\+FP compiler, which can take D\+FP codes input and output optimized ones.
+
+\subsection*{Introduction}
+
+This compiler follows the traditional compiler architecture\+:
+
+
+\begin{DoxyItemize}
+\item {\bfseries Lexer}\+: Transforms input D\+FP codes into token stream.
+\item {\bfseries Parser}\+: Use token stream to build D\+F\+Gs (dataflow graph) and edges. Invalid semantics will cause fatal error while parsing.
+\item {\bfseries Optimizer}\+: Including three different optimizers, which are based on canonical simplified data flow analysis algorithms.
+\item {\bfseries Printer}\+: Print the D\+FP codes from D\+F\+Gs and edges.
+\end{DoxyItemize}
+
+Documentations can be found in {\ttfamily doxygen/}.
+
+\subsubsection*{Codes Structure}
+
+This compiler follows the traditional C++ directory structure\+:
+
+
+\begin{DoxyEnumerate}
+\item {\ttfamily src/}\+: C++ source code files, with suffixes {\ttfamily .cc}
+\item {\ttfamily include/}\+: C++ header files, with suffixes {\ttfamily .hh}
+\item {\ttfamily bin/}\+: C++ objects.
+\item {\ttfamily Makefile}\+: Makefile for this compiler.
+\end{DoxyEnumerate}
+
+There\textquotesingle{}re 4 different modules in this compiler\+:
+
+
+\begin{DoxyEnumerate}
+\item {\ttfamily dfp\+\_\+lexer.\+hh(cc)}\+: {\ttfamily class Lexer}\textquotesingle{}s definition and implementations.
+\item {\ttfamily dfp\+\_\+parser.\+hh(cc)}\+: {\ttfamily class Parser}\textquotesingle{}s definition and implementations.
+\item {\ttfamily dfp\+\_\+program.\+hh(cc)}\+: Internal data structure for D\+FP, including classes like {\ttfamily Graph}, {\ttfamily Node}, {\ttfamily Value} and {\ttfamily Edge}.
+\item {\ttfamily dfp.\+hh(cc)}\+: Main class {\ttfamily Compiler}.
+\end{DoxyEnumerate}
+
+\subsubsection*{System Requirements}
+
+
+\begin{DoxyEnumerate}
+\item C++11 enabled compiler, g++ version $>$= 4.\+8 is recommended.
+\item No other libraries! Yah!
+\end{DoxyEnumerate}
+
+\subsection*{How to Install}
+
+Just use {\ttfamily make all} to build the compiler and other utilities.
+
+\subsection*{Usage}
+
+\subsubsection*{Compiler}
+
+The compiler program is {\ttfamily dfp}. You could simply run it from the command line.
+
+Options\+:
+\begin{DoxyEnumerate}
+\item {\ttfamily -\/f \mbox{[}filename\mbox{]}}\+: take input D\+FP codes from file {\ttfamily \mbox{[}filename\mbox{]}}
+\item {\ttfamily -\/o \mbox{[}filename\mbox{]}}\+: output transformed D\+FP codes to file {\ttfamily \mbox{[}filename\mbox{]}}
+\end{DoxyEnumerate}
+
+\subsection*{Test and Benchmarks}
+
+There\textquotesingle{}re several benchmarks and examples in the {\ttfamily benchmarks/} directory. Fill free to try them.
+
+And a brief optimization conclusion will be appended\+:
+
+
+\begin{DoxyCode}
+1 $ ./dfp -f benchmarks/bench04\_general.dfp
+2 parsed 2 graphs and 0 edges
+3 Opt Report: Format=[graph #id](Binary nodes number) ...
+4 Opt pass #0:    g1(5)   g2(3)
+5 Opt pass #1:    g1(5)   g2(3)
+6 Opt pass #2:    g1(4)   g2(2)
+7 Opt pass #3:    g1(1)   g2(2)
+\end{DoxyCode}
+
+
+In this example, there\textquotesingle{}re two graphs (g1 and g2), and the initial number of binary nodes are 5 and 3. After 3 passes of optimization(\#0 is the original one), there\textquotesingle{}re 1 and 2 number of binary nodes left in g1 and g2. 

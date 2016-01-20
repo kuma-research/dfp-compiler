@@ -31,143 +31,23 @@ int Compiler::compile() {
 }
 
 int Compiler::optimize() {
-  // Optimize pass #1: remove useless nodes
-  for (auto gp : dfp->graphs) {
-    Graph *g = gp.second;
-    std::map<string_t, bool> bitmap;
-    std::queue<string_t> q;
 
-    // initialize;
-    for (auto np : g->nt) {
-      bitmap[np.first] = false;
-    }
+  std::vector<Program::report_t> reports;
 
-    nodetable_t o_nodes = g->getOutNodeTable();
-
-    for (auto np : o_nodes) {
-      bitmap[np.first] = true;
-      q.push(np.first);
-    }
-
-    while (!q.empty()) {
-      Node *n = g->nt[q.front()];
-      q.pop();
-      bitmap[n->id] = true;
-      for (Value *v : n->vl) {
-        if (v->type == StrType) {
-          q.push(((StrValue *)v)->value);
-        }
-      }
-    }
-
-    for (auto bp : bitmap) {
-      if (!bp.second) {
-        // remove the node ..
-        g->nt.erase(bp.first);
-      }
-    }
+  reports.push_back(dfp->getReport());
+  for (Optimizer *op : ops) {
+    op->optimize(dfp);
+    reports.push_back(dfp->getReport());
   }
 
-  // Optimize pass #2: remove same expressions
-  for (auto gp : dfp->graphs) {
-    Graph *g = gp.second;
-    bool is_changed = false;
-    do {
-      is_changed = false;
-      for (auto np1 : g->nt) {
-        Node *n1 = np1.second;
-        if (!n1->isBinary())
-          continue;
-
-        for (auto np2 : g->nt) {
-          Node *n2 = np2.second;
-          if (n2->id != n1->id) {
-            if (*n1 == *n2) {
-              // apply change
-              for (auto np3 : g->nt) {
-                Node *n3 = np3.second;
-                if (n3->id == n1->id || n3->id == n2->id)
-                  continue;
-
-                for (int i = 0; i < n3->vl.size(); i++) {
-                  Value *v = n3->vl[i];
-                  if (v->type == StrType) {
-                    StrValue *sv = (StrValue *)v;
-                    if (sv->value == n2->id) {
-                      // by creating a new node, replaced the old one
-                      n3->vl[i] = new StrValue(new Word(n1->id.c_str(), ID));
-                    }
-                  }
-                }
-              }
-              // remove node
-              g->nt.erase(n2->id);
-
-              is_changed = true;
-            }
-          }
-        }
-      }
-    } while (is_changed);
-
-    // Optimize pass #3: remove same expressions
-    for (auto gp : dfp->graphs) {
-      Graph *g = gp.second;
-      bool is_changed = false;
-      do {
-        is_changed = false;
-        for (auto np1 : g->nt) {
-          Node *n1 = np1.second;
-          if (!n1->isBinary())
-            continue;
-
-          Value *v1 = n1->vl[0];
-          Value *v2 = n1->vl[1];
-          if (v1->type == IntType && v2->type == IntType) {
-            IntValue *iv1 = (IntValue *)v1;
-            IntValue *iv2 = (IntValue *)v2;
-            int result = 0;
-            switch (n1->type) {
-            case Add:
-              result = iv1->value + iv2->value;
-              break;
-            case Sub:
-              result = iv1->value - iv2->value;
-              break;
-            case Mult:
-              result = iv1->value * iv2->value;
-              break;
-            case Div:
-              result = iv1->value / iv2->value;
-              break;
-            default:
-              break; // This will not happen.
-            }
-
-            for (auto np2 : g->nt) {
-              Node *n2 = np2.second;
-              if (n2->id == n1->id)
-                continue;
-
-              for (int i = 0; i < n2->vl.size(); i++) {
-                Value *v = n2->vl[i];
-                if (v->type == StrType) {
-                  StrValue *sv = (StrValue *)v;
-                  if (sv->value == n1->id) {
-                    // by creating a new node, replaced the old one
-                    n2->vl[i] = new IntValue(new Num(result));
-                    is_changed = true;
-                  }
-                }
-              }
-            }
-
-            g->nt.erase(n1->id);
-            break;
-          }
-        }
-      } while (is_changed);
+  std::cout << "Opt Report:\tFormat=[graph #id](Binary nodes number) ..."
+            << std::endl;
+  for (int i = 0; i < reports.size(); i++) {
+    std::cout << "Opt pass #" << i << ":\t";
+    for (auto rp : reports[i]) {
+      std::cout << rp.first << "(" << rp.second << ")\t";
     }
+    std::cout << std::endl;
   }
 
   return 0;

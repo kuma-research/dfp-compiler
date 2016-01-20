@@ -1,0 +1,161 @@
+\hypertarget{class_d_f_p_1_1_node}{}\section{D\+FP\+:\+:Node Class Reference}
+\label{class_d_f_p_1_1_node}\index{D\+F\+P\+::\+Node@{D\+F\+P\+::\+Node}}
+
+
+\hyperlink{class_d_f_p_1_1_node}{Node} contains a list of input Values, will be referened in \hyperlink{class_d_f_p_1_1_graph}{Graph} or \hyperlink{class_d_f_p_1_1_edge}{Edge}.  
+
+
+
+
+{\ttfamily \#include $<$dfp\+\_\+program.\+hh$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{class_d_f_p_1_1_node_a31d945c7278c3587d6d28c76b0f1ae81}{Type} \{ \\*
+\hyperlink{class_d_f_p_1_1_node_a31d945c7278c3587d6d28c76b0f1ae81a8b0ac0a4d07f5860c156947aa7218adc}{In}, 
+\hyperlink{class_d_f_p_1_1_node_a31d945c7278c3587d6d28c76b0f1ae81ae12934d1eab7d10d4dc8c50c99b765a1}{Out}, 
+\hyperlink{class_d_f_p_1_1_node_a31d945c7278c3587d6d28c76b0f1ae81afcb8ac6b8fece66ac56f16db61481373}{Add}, 
+\hyperlink{class_d_f_p_1_1_node_a31d945c7278c3587d6d28c76b0f1ae81a428bc0ee7e35107ec42fb0aef0bd65b2}{Sub}, 
+\\*
+\hyperlink{class_d_f_p_1_1_node_a31d945c7278c3587d6d28c76b0f1ae81a05f8ddf7162817acd31d3ba843e19b07}{Div}, 
+\hyperlink{class_d_f_p_1_1_node_a31d945c7278c3587d6d28c76b0f1ae81a4441f6d3c4208c97618533c2bc993b74}{Mult}, 
+\hyperlink{class_d_f_p_1_1_node_a31d945c7278c3587d6d28c76b0f1ae81a627eaaffb68dd425c34104e5f8f7d381}{Null}
+ \}\begin{DoxyCompactList}\small\item\em An Enum for \hyperlink{class_d_f_p_1_1_node}{Node} object type. \end{DoxyCompactList}
+\item 
+typedef std\+::map$<$ string\+\_\+t, \hyperlink{class_d_f_p_1_1_node}{Node} $\ast$ $>$ \hyperlink{class_d_f_p_1_1_node_af7bf8e098cd86639fba4160356704786}{nodetable\+\_\+t}\hypertarget{class_d_f_p_1_1_node_af7bf8e098cd86639fba4160356704786}{}\label{class_d_f_p_1_1_node_af7bf8e098cd86639fba4160356704786}
+
+\begin{DoxyCompactList}\small\item\em A hash table from \hyperlink{class_d_f_p_1_1_node}{Node} id string to \hyperlink{class_d_f_p_1_1_node}{Node} object pointer $\ast$/. \end{DoxyCompactList}\item 
+typedef std\+::vector$<$ \hyperlink{class_d_f_p_1_1_node}{Node} $\ast$ $>$ \hyperlink{class_d_f_p_1_1_node_a9dc2ef0c0546df091e01cd0df2cc12d9}{nodelist\+\_\+t}\hypertarget{class_d_f_p_1_1_node_a9dc2ef0c0546df091e01cd0df2cc12d9}{}\label{class_d_f_p_1_1_node_a9dc2ef0c0546df091e01cd0df2cc12d9}
+
+\begin{DoxyCompactList}\small\item\em A list of pointers to \hyperlink{class_d_f_p_1_1_node}{Node} objects. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_d_f_p_1_1_node_a41c5c2dfd058d717e46d33e8e2946d91}{Node} (\hyperlink{class_d_f_p_1_1_node_a31d945c7278c3587d6d28c76b0f1ae81}{Type} type, string\+\_\+t \hyperlink{class_d_f_p_1_1_node_a7fb4f15a2c154c960f64797fc887fc75}{id}, \hyperlink{class_d_f_p_1_1_value_a2ca981be3c47c7d23213c08379d3c947}{Value\+::valuelist\+\_\+t} \&\hyperlink{class_d_f_p_1_1_node_aa9e4196de8f357a432508d1bf171a011}{vl})
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+bool \hyperlink{class_d_f_p_1_1_node_a61a5b15793ee6f9656c46f4b3f05196a}{is\+Binary} ()
+\begin{DoxyCompactList}\small\item\em Check whether this \hyperlink{class_d_f_p_1_1_node}{Node} object is a binary one. \end{DoxyCompactList}\item 
+bool \hyperlink{class_d_f_p_1_1_node_afce4058fc5988eb4bf7a33fd519c4d2e}{is\+Unary} ()\hypertarget{class_d_f_p_1_1_node_afce4058fc5988eb4bf7a33fd519c4d2e}{}\label{class_d_f_p_1_1_node_afce4058fc5988eb4bf7a33fd519c4d2e}
+
+\begin{DoxyCompactList}\small\item\em Check whether this \hyperlink{class_d_f_p_1_1_node}{Node} object is a unary one. \end{DoxyCompactList}\item 
+int \hyperlink{class_d_f_p_1_1_node_a5abdd9f8ff1d0238fb92f2bf20bd52a1}{eval} (int v1, int v2)\hypertarget{class_d_f_p_1_1_node_a5abdd9f8ff1d0238fb92f2bf20bd52a1}{}\label{class_d_f_p_1_1_node_a5abdd9f8ff1d0238fb92f2bf20bd52a1}
+
+\begin{DoxyCompactList}\small\item\em Use \hyperlink{class_d_f_p_1_1_node}{Node}\textquotesingle{}s type to calculate two input. NO T\+Y\+PE C\+H\+E\+C\+K\+I\+NG H\+E\+R\+E! \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_d_f_p_1_1_node_a31d945c7278c3587d6d28c76b0f1ae81}{Type} \hyperlink{class_d_f_p_1_1_node_ac282e4329fb1fcfb791093b40ef4f2aa}{tag2type} (Tag t)\hypertarget{class_d_f_p_1_1_node_ac282e4329fb1fcfb791093b40ef4f2aa}{}\label{class_d_f_p_1_1_node_ac282e4329fb1fcfb791093b40ef4f2aa}
+
+\begin{DoxyCompactList}\small\item\em Convert Tag in \hyperlink{class_d_f_p_1_1_token}{Token} to Type in \hyperlink{class_d_f_p_1_1_node}{Node}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_d_f_p_1_1_node_a31d945c7278c3587d6d28c76b0f1ae81}{Type} {\bfseries type}\hypertarget{class_d_f_p_1_1_node_a51f2b604b13572692ed9579ee7001a8a}{}\label{class_d_f_p_1_1_node_a51f2b604b13572692ed9579ee7001a8a}
+
+\item 
+\hyperlink{class_d_f_p_1_1_value_a2ca981be3c47c7d23213c08379d3c947}{Value\+::valuelist\+\_\+t} \hyperlink{class_d_f_p_1_1_node_aa9e4196de8f357a432508d1bf171a011}{vl}
+\item 
+string\+\_\+t \hyperlink{class_d_f_p_1_1_node_a7fb4f15a2c154c960f64797fc887fc75}{id}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::string \hyperlink{class_d_f_p_1_1_node_a528f41af98281ae51454cf666d1c04e1}{Type\+Str} \mbox{[}$\,$\mbox{]} = \{\char`\"{}In\char`\"{}, \char`\"{}\hyperlink{class_d_f_p_1_1_node_a31d945c7278c3587d6d28c76b0f1ae81ae12934d1eab7d10d4dc8c50c99b765a1}{Out}\char`\"{}, \char`\"{}\hyperlink{class_d_f_p_1_1_node_a31d945c7278c3587d6d28c76b0f1ae81afcb8ac6b8fece66ac56f16db61481373}{Add}\char`\"{}, \char`\"{}\hyperlink{class_d_f_p_1_1_node_a31d945c7278c3587d6d28c76b0f1ae81a428bc0ee7e35107ec42fb0aef0bd65b2}{Sub}\char`\"{}, \char`\"{}\hyperlink{class_d_f_p_1_1_node_a31d945c7278c3587d6d28c76b0f1ae81a05f8ddf7162817acd31d3ba843e19b07}{Div}\char`\"{}, \char`\"{}\hyperlink{class_d_f_p_1_1_node_a31d945c7278c3587d6d28c76b0f1ae81a4441f6d3c4208c97618533c2bc993b74}{Mult}\char`\"{}, \char`\"{}\hyperlink{class_d_f_p_1_1_node_a31d945c7278c3587d6d28c76b0f1ae81a627eaaffb68dd425c34104e5f8f7d381}{Null}\char`\"{}\}\hypertarget{class_d_f_p_1_1_node_a528f41af98281ae51454cf666d1c04e1}{}\label{class_d_f_p_1_1_node_a528f41af98281ae51454cf666d1c04e1}
+
+\begin{DoxyCompactList}\small\item\em Names for \hyperlink{class_d_f_p_1_1_node_a31d945c7278c3587d6d28c76b0f1ae81}{Node\+::\+Type}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, const \hyperlink{class_d_f_p_1_1_node}{Node} \&n)\hypertarget{class_d_f_p_1_1_node_a6fe565f8d6d1c1d44540c07e92864c91}{}\label{class_d_f_p_1_1_node_a6fe565f8d6d1c1d44540c07e92864c91}
+
+\item 
+bool {\bfseries operator==} (const \hyperlink{class_d_f_p_1_1_node}{Node} \&n1, const \hyperlink{class_d_f_p_1_1_node}{Node} \&n2)\hypertarget{class_d_f_p_1_1_node_a156456698e98563a77c4c0af13c20db1}{}\label{class_d_f_p_1_1_node_a156456698e98563a77c4c0af13c20db1}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_d_f_p_1_1_node}{Node} contains a list of input Values, will be referened in \hyperlink{class_d_f_p_1_1_graph}{Graph} or \hyperlink{class_d_f_p_1_1_edge}{Edge}. 
+
+\subsection{Member Enumeration Documentation}
+\index{D\+F\+P\+::\+Node@{D\+F\+P\+::\+Node}!Type@{Type}}
+\index{Type@{Type}!D\+F\+P\+::\+Node@{D\+F\+P\+::\+Node}}
+\subsubsection[{\texorpdfstring{Type}{Type}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf D\+F\+P\+::\+Node\+::\+Type}}\hypertarget{class_d_f_p_1_1_node_a31d945c7278c3587d6d28c76b0f1ae81}{}\label{class_d_f_p_1_1_node_a31d945c7278c3587d6d28c76b0f1ae81}
+
+
+An Enum for \hyperlink{class_d_f_p_1_1_node}{Node} object type. 
+
+Types can be divided into 2 categories\+: Input/\+Output and Binary \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{In@{In}!D\+F\+P\+::\+Node@{D\+F\+P\+::\+Node}}\index{D\+F\+P\+::\+Node@{D\+F\+P\+::\+Node}!In@{In}}\item[{\em 
+In\hypertarget{class_d_f_p_1_1_node_a31d945c7278c3587d6d28c76b0f1ae81a8b0ac0a4d07f5860c156947aa7218adc}{}\label{class_d_f_p_1_1_node_a31d945c7278c3587d6d28c76b0f1ae81a8b0ac0a4d07f5860c156947aa7218adc}
+}]This \hyperlink{class_d_f_p_1_1_node}{Node} is an input node, has empty value list. \index{Out@{Out}!D\+F\+P\+::\+Node@{D\+F\+P\+::\+Node}}\index{D\+F\+P\+::\+Node@{D\+F\+P\+::\+Node}!Out@{Out}}\item[{\em 
+Out\hypertarget{class_d_f_p_1_1_node_a31d945c7278c3587d6d28c76b0f1ae81ae12934d1eab7d10d4dc8c50c99b765a1}{}\label{class_d_f_p_1_1_node_a31d945c7278c3587d6d28c76b0f1ae81ae12934d1eab7d10d4dc8c50c99b765a1}
+}]This \hyperlink{class_d_f_p_1_1_node}{Node} is an output node, has 1 value in the value list \index{Add@{Add}!D\+F\+P\+::\+Node@{D\+F\+P\+::\+Node}}\index{D\+F\+P\+::\+Node@{D\+F\+P\+::\+Node}!Add@{Add}}\item[{\em 
+Add\hypertarget{class_d_f_p_1_1_node_a31d945c7278c3587d6d28c76b0f1ae81afcb8ac6b8fece66ac56f16db61481373}{}\label{class_d_f_p_1_1_node_a31d945c7278c3587d6d28c76b0f1ae81afcb8ac6b8fece66ac56f16db61481373}
+}]This \hyperlink{class_d_f_p_1_1_node}{Node} will add up two input values \index{Sub@{Sub}!D\+F\+P\+::\+Node@{D\+F\+P\+::\+Node}}\index{D\+F\+P\+::\+Node@{D\+F\+P\+::\+Node}!Sub@{Sub}}\item[{\em 
+Sub\hypertarget{class_d_f_p_1_1_node_a31d945c7278c3587d6d28c76b0f1ae81a428bc0ee7e35107ec42fb0aef0bd65b2}{}\label{class_d_f_p_1_1_node_a31d945c7278c3587d6d28c76b0f1ae81a428bc0ee7e35107ec42fb0aef0bd65b2}
+}]This \hyperlink{class_d_f_p_1_1_node}{Node} will substract two input values as \mbox{[}0\mbox{]} -\/ \mbox{[}1\mbox{]} \index{Div@{Div}!D\+F\+P\+::\+Node@{D\+F\+P\+::\+Node}}\index{D\+F\+P\+::\+Node@{D\+F\+P\+::\+Node}!Div@{Div}}\item[{\em 
+Div\hypertarget{class_d_f_p_1_1_node_a31d945c7278c3587d6d28c76b0f1ae81a05f8ddf7162817acd31d3ba843e19b07}{}\label{class_d_f_p_1_1_node_a31d945c7278c3587d6d28c76b0f1ae81a05f8ddf7162817acd31d3ba843e19b07}
+}]This \hyperlink{class_d_f_p_1_1_node}{Node} will multiply two input values \index{Mult@{Mult}!D\+F\+P\+::\+Node@{D\+F\+P\+::\+Node}}\index{D\+F\+P\+::\+Node@{D\+F\+P\+::\+Node}!Mult@{Mult}}\item[{\em 
+Mult\hypertarget{class_d_f_p_1_1_node_a31d945c7278c3587d6d28c76b0f1ae81a4441f6d3c4208c97618533c2bc993b74}{}\label{class_d_f_p_1_1_node_a31d945c7278c3587d6d28c76b0f1ae81a4441f6d3c4208c97618533c2bc993b74}
+}]This \hyperlink{class_d_f_p_1_1_node}{Node} will divide two input values as \mbox{[}0\mbox{]} / \mbox{[}1\mbox{]} \index{Null@{Null}!D\+F\+P\+::\+Node@{D\+F\+P\+::\+Node}}\index{D\+F\+P\+::\+Node@{D\+F\+P\+::\+Node}!Null@{Null}}\item[{\em 
+Null\hypertarget{class_d_f_p_1_1_node_a31d945c7278c3587d6d28c76b0f1ae81a627eaaffb68dd425c34104e5f8f7d381}{}\label{class_d_f_p_1_1_node_a31d945c7278c3587d6d28c76b0f1ae81a627eaaffb68dd425c34104e5f8f7d381}
+}]This \hyperlink{class_d_f_p_1_1_node}{Node} can\textquotesingle{}t be recognized \end{description}
+\end{Desc}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{D\+F\+P\+::\+Node@{D\+F\+P\+::\+Node}!Node@{Node}}
+\index{Node@{Node}!D\+F\+P\+::\+Node@{D\+F\+P\+::\+Node}}
+\subsubsection[{\texorpdfstring{Node(\+Type type, string\+\_\+t id, Value\+::valuelist\+\_\+t \&vl)}{Node(Type type, string_t id, Value::valuelist_t &vl)}}]{\setlength{\rightskip}{0pt plus 5cm}D\+F\+P\+::\+Node\+::\+Node (
+\begin{DoxyParamCaption}
+\item[{{\bf Type}}]{type, }
+\item[{string\+\_\+t}]{id, }
+\item[{{\bf Value\+::valuelist\+\_\+t} \&}]{vl}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_d_f_p_1_1_node_a41c5c2dfd058d717e46d33e8e2946d91}{}\label{class_d_f_p_1_1_node_a41c5c2dfd058d717e46d33e8e2946d91}
+
+
+Constructor. 
+
+Specify the type of the node, the id, and value list for a node. 
+\begin{DoxyParams}{Parameters}
+{\em type} & The type of this constructing node. \\
+\hline
+{\em id} & The id for this node. \\
+\hline
+{\em valuelist} & a list of values parsed before. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{D\+F\+P\+::\+Node@{D\+F\+P\+::\+Node}!is\+Binary@{is\+Binary}}
+\index{is\+Binary@{is\+Binary}!D\+F\+P\+::\+Node@{D\+F\+P\+::\+Node}}
+\subsubsection[{\texorpdfstring{is\+Binary()}{isBinary()}}]{\setlength{\rightskip}{0pt plus 5cm}bool D\+F\+P\+::\+Node\+::is\+Binary (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_d_f_p_1_1_node_a61a5b15793ee6f9656c46f4b3f05196a}{}\label{class_d_f_p_1_1_node_a61a5b15793ee6f9656c46f4b3f05196a}
+
+
+Check whether this \hyperlink{class_d_f_p_1_1_node}{Node} object is a binary one. 
+
+The id of this node 
+
+\subsection{Member Data Documentation}
+\index{D\+F\+P\+::\+Node@{D\+F\+P\+::\+Node}!id@{id}}
+\index{id@{id}!D\+F\+P\+::\+Node@{D\+F\+P\+::\+Node}}
+\subsubsection[{\texorpdfstring{id}{id}}]{\setlength{\rightskip}{0pt plus 5cm}string\+\_\+t D\+F\+P\+::\+Node\+::id}\hypertarget{class_d_f_p_1_1_node_a7fb4f15a2c154c960f64797fc887fc75}{}\label{class_d_f_p_1_1_node_a7fb4f15a2c154c960f64797fc887fc75}
+The input value list for this \hyperlink{class_d_f_p_1_1_node}{Node} \index{D\+F\+P\+::\+Node@{D\+F\+P\+::\+Node}!vl@{vl}}
+\index{vl@{vl}!D\+F\+P\+::\+Node@{D\+F\+P\+::\+Node}}
+\subsubsection[{\texorpdfstring{vl}{vl}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Value\+::valuelist\+\_\+t} D\+F\+P\+::\+Node\+::vl}\hypertarget{class_d_f_p_1_1_node_aa9e4196de8f357a432508d1bf171a011}{}\label{class_d_f_p_1_1_node_aa9e4196de8f357a432508d1bf171a011}
+The Type of this \hyperlink{class_d_f_p_1_1_node}{Node} 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/dfp\+\_\+program.\+hh\item 
+src/dfp\+\_\+program.\+cc\end{DoxyCompactItemize}

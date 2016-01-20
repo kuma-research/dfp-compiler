@@ -35,7 +35,7 @@ Graph *Parser::graph() {
     Token *tok = look; // which should be an id
     match(ID);
     match('{'); // then followed curly braces
-    nodelist_t nl = nodelist();
+    Node::nodelist_t nl = nodelist();
     match('}'); // ended curly braces
     match(';');
     Graph *g = new Graph(((Word *)tok)->lexeme, nl);
@@ -53,8 +53,8 @@ Graph *Parser::graph() {
   }
 }
 
-nodelist_t Parser::nodelist() {
-  nodelist_t nl;
+Node::nodelist_t Parser::nodelist() {
+  Node::nodelist_t nl;
   Node *n;
   while ((n = node()) != NULL) {
     nl.push_back(n);
@@ -65,23 +65,23 @@ nodelist_t Parser::nodelist() {
 Node *Parser::node() {
   if (look->tag == IN || look->tag == OUT || look->tag == ADD ||
       look->tag == SUB || look->tag == MULT || look->tag == DIV) {
-    NodeType ntype = Node::tag2type((Tag)look->tag);
+    Node::Type ntype = Node::tag2type((Tag)look->tag);
     move(); // This is an InNode
     Token *tok = look;
     string_t id = ((Word *)tok)->lexeme;
     match(ID);
     match('[');
-    valuelist_t vl = valuelist();
+    Value::valuelist_t vl = valuelist();
 
     // check value list validity
-    if (ntype == In && vl.size() > 0) {
+    if (ntype == Node::In && vl.size() > 0) {
       fprintf(stderr, "Error: Input node %s should have no input value\n",
               id.c_str());
       exit(1);
-    } else if (ntype == Out && vl.size() != 1) {
+    } else if (ntype == Node::Out && vl.size() != 1) {
       fprintf(stderr, "Error: Output node %s should be unary.\n", id.c_str());
       exit(1);
-    } else if (ntype != In && ntype != Out && vl.size() != 2) {
+    } else if (ntype != Node::In && ntype != Node::Out && vl.size() != 2) {
       fprintf(stderr, "Error: Binary node %s should be binary.\n", id.c_str());
       exit(1);
     }
@@ -93,8 +93,8 @@ Node *Parser::node() {
   }
 }
 
-valuelist_t Parser::valuelist() {
-  valuelist_t vl;
+Value::valuelist_t Parser::valuelist() {
+  Value::valuelist_t vl;
   Value *v;
   while ((v = value()) != NULL) {
     vl.push_back(v);

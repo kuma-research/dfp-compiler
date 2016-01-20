@@ -5,34 +5,14 @@
 #include "dfp_program.hh"
 
 namespace DFP {
-NodeType Node::tag2type(Tag t) {
-
-  switch (t) {
-  case IN:
-    return In;
-  case OUT:
-    return Out;
-  case ADD:
-    return Add;
-  case SUB:
-    return Sub;
-  case MULT:
-    return Mult;
-  case DIV:
-    return Div;
-  default:
-    return Null;
-  }
-}
-
 /* Value */
 bool operator==(const Value &v1, const Value &v2) {
   if (v1.type == v2.type) {
-    if (v1.type == IntType) {
+    if (v1.type == Value::IntType) {
       IntValue *iv1 = (IntValue *)&v1;
       IntValue *iv2 = (IntValue *)&v2;
       return iv1->value == iv2->value;
-    } else if (v1.type == StrType) {
+    } else if (v1.type == Value::StrType) {
       StrValue *sv1 = (StrValue *)&v1;
       StrValue *sv2 = (StrValue *)&v2;
       return sv1->value == sv2->value;
@@ -42,11 +22,11 @@ bool operator==(const Value &v1, const Value &v2) {
 }
 
 /* Graph */
-nodetable_t Graph::getOutNodeTable() {
-  nodetable_t out_node_table;
+Node::nodetable_t Graph::getOutNodeTable() {
+  Node::nodetable_t out_node_table;
   for (auto np : nt) {
     Node *n = np.second;
-    if (n->type == Out) {
+    if (n->type == Node::Out) {
       out_node_table[n->id] = n;
     }
   }
@@ -58,7 +38,7 @@ bool Graph::validate() {
     Node *n = np.second;
     // for each value in node's value list, check whether it's in the graph
     for (Value *v : n->vl) {
-      if (v->type == StrType) {
+      if (v->type == Value::StrType) {
         StrValue *sv = (StrValue *)v;
         string_t id = sv->value;
         if (nt[id] == NULL)
@@ -69,7 +49,53 @@ bool Graph::validate() {
   return true;
 }
 
+int Graph::getBinaryNodeNumber() {
+  int cnt = 0;
+  for (auto np : nt)
+    if (np.second->isBinary())
+      cnt++;
+  return cnt;
+}
+
 /* Node */
+
+string_t Node::TypeStr[] = {"In", "Out", "Add", "Sub", "Div", "Mult", "Null"};
+
+Node::Type Node::tag2type(Tag t) {
+
+  switch (t) {
+  case IN:
+    return Node::In;
+  case OUT:
+    return Node::Out;
+  case ADD:
+    return Node::Add;
+  case SUB:
+    return Node::Sub;
+  case MULT:
+    return Node::Mult;
+  case DIV:
+    return Node::Div;
+  default:
+    return Node::Null;
+  }
+}
+
+int Node::eval(int v1, int v2) {
+  switch (type) {
+  case Add:
+    return v1 + v2;
+  case Sub:
+    return v1 - v2;
+  case Mult:
+    return v1 * v2;
+  case Div:
+    return v1 / v2;
+  default:
+    return 0;
+  }
+}
+
 bool operator==(const Node &n1, const Node &n2) {
   if (n1.type == n2.type) {
     Value *v10 = n1.vl[0];
@@ -87,7 +113,7 @@ bool operator==(const Node &n1, const Node &n2) {
 bool Edge::validate() {
   if (src_graph != NULL && src_node != NULL && dst_graph != NULL &&
       dst_node != NULL) {
-    if (src_node->type == Out && dst_node->type == In)
+    if (src_node->type == Node::Out && dst_node->type == Node::In)
       return true;
     else
       return false;
@@ -96,11 +122,22 @@ bool Edge::validate() {
   }
 }
 
+/* Program */
+Program::report_t Program::getReport() {
+  report_t report;
+  for (auto gp : graphs) {
+    string_t graph_id = gp.first;
+    int num_graph_node = gp.second->getBinaryNodeNumber();
+    report[graph_id] = num_graph_node;
+  }
+  return report;
+}
+
 // Output DFP
 std::ostream &operator<<(std::ostream &os, const Value &v) {
-  if (v.type == IntType) {
+  if (v.type == Value::IntType) {
     os << ((Num *)v.token)->value;
-  } else if (v.type == StrType) {
+  } else if (v.type == Value::StrType) {
     os << ((Word *)v.token)->lexeme;
   }
   return os;
@@ -117,7 +154,7 @@ std::ostream &operator<<(std::ostream &os, const StrValue &v) {
 };
 
 std::ostream &operator<<(std::ostream &os, const Node &n) {
-  os << NodeTypeStr[n.type] << "\t";
+  os << Node::TypeStr[n.type] << "\t";
   os << n.id << "\t[ ";
   for (Value *v : n.vl) {
     os << *v << " ";

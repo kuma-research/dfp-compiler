@@ -1,0 +1,82 @@
+\hypertarget{class_d_f_p_1_1_graph}{}\section{D\+FP\+:\+:Graph Class Reference}
+\label{class_d_f_p_1_1_graph}\index{D\+F\+P\+::\+Graph@{D\+F\+P\+::\+Graph}}
+
+
+\hyperlink{class_d_f_p_1_1_graph}{Graph} contains a hash table of nodes.  
+
+
+
+
+{\ttfamily \#include $<$dfp\+\_\+program.\+hh$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::map$<$ string\+\_\+t, \hyperlink{class_d_f_p_1_1_graph}{Graph} $\ast$ $>$ \hyperlink{class_d_f_p_1_1_graph_ae35638adb932f3b7fd545ac09ea34c5a}{graphtable\+\_\+t}\hypertarget{class_d_f_p_1_1_graph_ae35638adb932f3b7fd545ac09ea34c5a}{}\label{class_d_f_p_1_1_graph_ae35638adb932f3b7fd545ac09ea34c5a}
+
+\begin{DoxyCompactList}\small\item\em A hashtable from graph id to \hyperlink{class_d_f_p_1_1_graph}{Graph} object pointer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_d_f_p_1_1_graph_a3d04c060d5f07627211996e42e7819fc}{Graph} (string\+\_\+t \hyperlink{class_d_f_p_1_1_graph_aa5ed385b1f994f5220e0bb3d290bcfb8}{id}, \hyperlink{class_d_f_p_1_1_node_a9dc2ef0c0546df091e01cd0df2cc12d9}{Node\+::nodelist\+\_\+t} nl)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{class_d_f_p_1_1_node_af7bf8e098cd86639fba4160356704786}{Node\+::nodetable\+\_\+t} \hyperlink{class_d_f_p_1_1_graph_a808d6323d5d322df30dcf0703ea5e7fc}{get\+Out\+Node\+Table} ()\hypertarget{class_d_f_p_1_1_graph_a808d6323d5d322df30dcf0703ea5e7fc}{}\label{class_d_f_p_1_1_graph_a808d6323d5d322df30dcf0703ea5e7fc}
+
+\begin{DoxyCompactList}\small\item\em Get the Nodes in this \hyperlink{class_d_f_p_1_1_graph}{Graph} which has type \hyperlink{class_d_f_p_1_1_node_a31d945c7278c3587d6d28c76b0f1ae81ae12934d1eab7d10d4dc8c50c99b765a1}{Node\+::\+Out}. \end{DoxyCompactList}\item 
+\hyperlink{class_d_f_p_1_1_node_af7bf8e098cd86639fba4160356704786}{Node\+::nodetable\+\_\+t} \hyperlink{class_d_f_p_1_1_graph_ae045b3ed7d9b2d8da2804d09d34fe46d}{get\+Inp\+Node\+Table} ()\hypertarget{class_d_f_p_1_1_graph_ae045b3ed7d9b2d8da2804d09d34fe46d}{}\label{class_d_f_p_1_1_graph_ae045b3ed7d9b2d8da2804d09d34fe46d}
+
+\begin{DoxyCompactList}\small\item\em Get the Nodes in this \hyperlink{class_d_f_p_1_1_graph}{Graph} which has type \hyperlink{class_d_f_p_1_1_node_a31d945c7278c3587d6d28c76b0f1ae81a8b0ac0a4d07f5860c156947aa7218adc}{Node\+::\+In}. \end{DoxyCompactList}\item 
+int \hyperlink{class_d_f_p_1_1_graph_ac39aa15ae1dd24383da300d02b0ae0d1}{get\+Binary\+Node\+Number} ()\hypertarget{class_d_f_p_1_1_graph_ac39aa15ae1dd24383da300d02b0ae0d1}{}\label{class_d_f_p_1_1_graph_ac39aa15ae1dd24383da300d02b0ae0d1}
+
+\begin{DoxyCompactList}\small\item\em Get number of binary nodes. \end{DoxyCompactList}\item 
+bool {\bfseries validate} ()\hypertarget{class_d_f_p_1_1_graph_a19063fcb0841ddcd7330129081348e97}{}\label{class_d_f_p_1_1_graph_a19063fcb0841ddcd7330129081348e97}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string\+\_\+t \hyperlink{class_d_f_p_1_1_graph_aa5ed385b1f994f5220e0bb3d290bcfb8}{id}
+\item 
+\hyperlink{class_d_f_p_1_1_node_af7bf8e098cd86639fba4160356704786}{Node\+::nodetable\+\_\+t} \hyperlink{class_d_f_p_1_1_graph_a71f3f7d9daf86c8c903f9a0f9428d67d}{nt}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, const \hyperlink{class_d_f_p_1_1_graph}{Graph} \&g)\hypertarget{class_d_f_p_1_1_graph_a63ded41af685d3ec7ab3e6dcac27d7d2}{}\label{class_d_f_p_1_1_graph_a63ded41af685d3ec7ab3e6dcac27d7d2}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_d_f_p_1_1_graph}{Graph} contains a hash table of nodes. 
+
+Each graph contains many Nodes, all the pointers to them will be stored in a hash table, which could be refereced by \hyperlink{class_d_f_p_1_1_node}{Node}\textquotesingle{}s id 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{D\+F\+P\+::\+Graph@{D\+F\+P\+::\+Graph}!Graph@{Graph}}
+\index{Graph@{Graph}!D\+F\+P\+::\+Graph@{D\+F\+P\+::\+Graph}}
+\subsubsection[{\texorpdfstring{Graph(string\+\_\+t id, Node\+::nodelist\+\_\+t nl)}{Graph(string_t id, Node::nodelist_t nl)}}]{\setlength{\rightskip}{0pt plus 5cm}D\+F\+P\+::\+Graph\+::\+Graph (
+\begin{DoxyParamCaption}
+\item[{string\+\_\+t}]{id, }
+\item[{{\bf Node\+::nodelist\+\_\+t}}]{nl}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_d_f_p_1_1_graph_a3d04c060d5f07627211996e42e7819fc}{}\label{class_d_f_p_1_1_graph_a3d04c060d5f07627211996e42e7819fc}
+
+
+Constructor. 
+
+After the parser has parsed the \hyperlink{class_d_f_p_1_1_node}{Node} list within each \hyperlink{class_d_f_p_1_1_graph}{Graph} block, will create a new \hyperlink{class_d_f_p_1_1_graph}{Graph} object by using this collection of \hyperlink{class_d_f_p_1_1_node}{Node}. The original list will be converted to a hash table. 
+
+\subsection{Member Data Documentation}
+\index{D\+F\+P\+::\+Graph@{D\+F\+P\+::\+Graph}!id@{id}}
+\index{id@{id}!D\+F\+P\+::\+Graph@{D\+F\+P\+::\+Graph}}
+\subsubsection[{\texorpdfstring{id}{id}}]{\setlength{\rightskip}{0pt plus 5cm}string\+\_\+t D\+F\+P\+::\+Graph\+::id}\hypertarget{class_d_f_p_1_1_graph_aa5ed385b1f994f5220e0bb3d290bcfb8}{}\label{class_d_f_p_1_1_graph_aa5ed385b1f994f5220e0bb3d290bcfb8}
+The id of this \hyperlink{class_d_f_p_1_1_graph}{Graph} \index{D\+F\+P\+::\+Graph@{D\+F\+P\+::\+Graph}!nt@{nt}}
+\index{nt@{nt}!D\+F\+P\+::\+Graph@{D\+F\+P\+::\+Graph}}
+\subsubsection[{\texorpdfstring{nt}{nt}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Node\+::nodetable\+\_\+t} D\+F\+P\+::\+Graph\+::nt}\hypertarget{class_d_f_p_1_1_graph_a71f3f7d9daf86c8c903f9a0f9428d67d}{}\label{class_d_f_p_1_1_graph_a71f3f7d9daf86c8c903f9a0f9428d67d}
+The hash table in this \hyperlink{class_d_f_p_1_1_graph}{Graph} 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/dfp\+\_\+program.\+hh\item 
+src/dfp\+\_\+program.\+cc\end{DoxyCompactItemize}

@@ -20,13 +20,13 @@ public:
   Program *program();
   Graph *graph();
   Node *node();
-  nodelist_t nodelist();
+  Node::nodelist_t nodelist();
   Value *value();
-  valuelist_t valuelist();
+  Value::valuelist_t valuelist();
   Edge *edge();
 
-  graphtable_t graphs;
-  edgelist_t edges;
+  Graph::graphtable_t graphs;
+  Edge::edgelist_t edges;
 
 private:
   Lexer *lexer;

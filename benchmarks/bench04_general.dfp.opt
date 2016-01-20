@@ -1,0 +1,19 @@
+dfg 	g1	{
+  Out	d1	[ y1 ];
+  Out	d2	[ 3 ];
+  Out	d3	[ 3 ];
+  Out	d4	[ 3 ];
+  In	x1	[ ];
+  In	x2	[ ];
+  Sub	y1	[ x1 x2 ];
+};
+
+dfg 	g2	{
+  Out	d4	[ z1 ];
+  In	x1	[ ];
+  In	x2	[ ];
+  Mult	y1	[ x1 x2 ];
+  Add	z1	[ y1 y1 ];
+};
+
+

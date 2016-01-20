@@ -1,0 +1,72 @@
+\hypertarget{class_d_f_p_1_1_edge}{}\section{D\+FP\+:\+:Edge Class Reference}
+\label{class_d_f_p_1_1_edge}\index{D\+F\+P\+::\+Edge@{D\+F\+P\+::\+Edge}}
+
+
+\hyperlink{class_d_f_p_1_1_edge}{Edge} contains pointers to graphs and nodes.  
+
+
+
+
+{\ttfamily \#include $<$dfp\+\_\+program.\+hh$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::vector$<$ \hyperlink{class_d_f_p_1_1_edge}{Edge} $\ast$ $>$ \hyperlink{class_d_f_p_1_1_edge_a71ccd1900dbfda5591981064738f60af}{edgelist\+\_\+t}\hypertarget{class_d_f_p_1_1_edge_a71ccd1900dbfda5591981064738f60af}{}\label{class_d_f_p_1_1_edge_a71ccd1900dbfda5591981064738f60af}
+
+\begin{DoxyCompactList}\small\item\em A list contains pointers to \hyperlink{class_d_f_p_1_1_edge}{Edge} objects. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Edge} (\hyperlink{class_d_f_p_1_1_graph}{Graph} $\ast$g1, \hyperlink{class_d_f_p_1_1_node}{Node} $\ast$n1, \hyperlink{class_d_f_p_1_1_graph}{Graph} $\ast$g2, \hyperlink{class_d_f_p_1_1_node}{Node} $\ast$n2)\hypertarget{class_d_f_p_1_1_edge_a31c5aa0ea975790932d13a18ec6d84ee}{}\label{class_d_f_p_1_1_edge_a31c5aa0ea975790932d13a18ec6d84ee}
+
+\item 
+bool {\bfseries validate} ()\hypertarget{class_d_f_p_1_1_edge_a83b1d1a1a421b79d9a181ff4e3e21ecb}{}\label{class_d_f_p_1_1_edge_a83b1d1a1a421b79d9a181ff4e3e21ecb}
+
+\item 
+int {\bfseries eval} (int v1, int v2)\hypertarget{class_d_f_p_1_1_edge_ac142939aa6aa05c7ee0713b33af9639e}{}\label{class_d_f_p_1_1_edge_ac142939aa6aa05c7ee0713b33af9639e}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_d_f_p_1_1_graph}{Graph} $\ast$ \hyperlink{class_d_f_p_1_1_edge_a993e651548528b8cc2029d777cf2a881}{src\+\_\+graph}
+\item 
+\hyperlink{class_d_f_p_1_1_graph}{Graph} $\ast$ \hyperlink{class_d_f_p_1_1_edge_a4f4d043502fb5a3438652bf3fce09273}{dst\+\_\+graph}
+\item 
+\hyperlink{class_d_f_p_1_1_node}{Node} $\ast$ \hyperlink{class_d_f_p_1_1_edge_a76f03300ad177e767033229d0fc1a780}{src\+\_\+node}
+\item 
+\hyperlink{class_d_f_p_1_1_node}{Node} $\ast$ \hyperlink{class_d_f_p_1_1_edge_a1c2dd4ca03c0dfa002a2d07dc738cfaa}{dst\+\_\+node}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, const \hyperlink{class_d_f_p_1_1_edge}{Edge} \&e)\hypertarget{class_d_f_p_1_1_edge_aa1b374eb64c6c754621b4fc918a9df57}{}\label{class_d_f_p_1_1_edge_aa1b374eb64c6c754621b4fc918a9df57}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_d_f_p_1_1_edge}{Edge} contains pointers to graphs and nodes. 
+
+\hyperlink{class_d_f_p_1_1_edge}{Edge} contains 4 pointers\+: to the source graph and source node, to the destination graph and node. 
+
+\subsection{Member Data Documentation}
+\index{D\+F\+P\+::\+Edge@{D\+F\+P\+::\+Edge}!dst\+\_\+graph@{dst\+\_\+graph}}
+\index{dst\+\_\+graph@{dst\+\_\+graph}!D\+F\+P\+::\+Edge@{D\+F\+P\+::\+Edge}}
+\subsubsection[{\texorpdfstring{dst\+\_\+graph}{dst_graph}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Graph}$\ast$ D\+F\+P\+::\+Edge\+::dst\+\_\+graph}\hypertarget{class_d_f_p_1_1_edge_a4f4d043502fb5a3438652bf3fce09273}{}\label{class_d_f_p_1_1_edge_a4f4d043502fb5a3438652bf3fce09273}
+Pointers to the desination \hyperlink{class_d_f_p_1_1_graph}{Graph} \index{D\+F\+P\+::\+Edge@{D\+F\+P\+::\+Edge}!dst\+\_\+node@{dst\+\_\+node}}
+\index{dst\+\_\+node@{dst\+\_\+node}!D\+F\+P\+::\+Edge@{D\+F\+P\+::\+Edge}}
+\subsubsection[{\texorpdfstring{dst\+\_\+node}{dst_node}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Node}$\ast$ D\+F\+P\+::\+Edge\+::dst\+\_\+node}\hypertarget{class_d_f_p_1_1_edge_a1c2dd4ca03c0dfa002a2d07dc738cfaa}{}\label{class_d_f_p_1_1_edge_a1c2dd4ca03c0dfa002a2d07dc738cfaa}
+Pointers to the desination \hyperlink{class_d_f_p_1_1_node}{Node} \index{D\+F\+P\+::\+Edge@{D\+F\+P\+::\+Edge}!src\+\_\+graph@{src\+\_\+graph}}
+\index{src\+\_\+graph@{src\+\_\+graph}!D\+F\+P\+::\+Edge@{D\+F\+P\+::\+Edge}}
+\subsubsection[{\texorpdfstring{src\+\_\+graph}{src_graph}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Graph}$\ast$ D\+F\+P\+::\+Edge\+::src\+\_\+graph}\hypertarget{class_d_f_p_1_1_edge_a993e651548528b8cc2029d777cf2a881}{}\label{class_d_f_p_1_1_edge_a993e651548528b8cc2029d777cf2a881}
+Pointers to the source \hyperlink{class_d_f_p_1_1_graph}{Graph} \index{D\+F\+P\+::\+Edge@{D\+F\+P\+::\+Edge}!src\+\_\+node@{src\+\_\+node}}
+\index{src\+\_\+node@{src\+\_\+node}!D\+F\+P\+::\+Edge@{D\+F\+P\+::\+Edge}}
+\subsubsection[{\texorpdfstring{src\+\_\+node}{src_node}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Node}$\ast$ D\+F\+P\+::\+Edge\+::src\+\_\+node}\hypertarget{class_d_f_p_1_1_edge_a76f03300ad177e767033229d0fc1a780}{}\label{class_d_f_p_1_1_edge_a76f03300ad177e767033229d0fc1a780}
+Pointers to the source \hyperlink{class_d_f_p_1_1_node}{Node} 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/dfp\+\_\+program.\+hh\item 
+src/dfp\+\_\+program.\+cc\end{DoxyCompactItemize}

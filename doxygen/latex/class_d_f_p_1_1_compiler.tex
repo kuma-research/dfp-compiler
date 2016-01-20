@@ -1,0 +1,116 @@
+\hypertarget{class_d_f_p_1_1_compiler}{}\section{D\+FP\+:\+:Compiler Class Reference}
+\label{class_d_f_p_1_1_compiler}\index{D\+F\+P\+::\+Compiler@{D\+F\+P\+::\+Compiler}}
+
+
+{\ttfamily \#include $<$dfp.\+hh$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_d_f_p_1_1_compiler_a50b7375fef9b5f9f911ba37852195467}{Compiler} (std\+::string \hyperlink{class_d_f_p_1_1_compiler_a1c91460b5beaebb3f657eeb639734f35}{file\+\_\+name})
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+int \hyperlink{class_d_f_p_1_1_compiler_a79f611dd27bff14c67741c5d305d95b2}{compile} ()
+\begin{DoxyCompactList}\small\item\em Procedure to compile the input D\+FP codes. \end{DoxyCompactList}\item 
+int \hyperlink{class_d_f_p_1_1_compiler_aadebebf9f19ef17f4f60c7c147712c9e}{optimize} ()
+\begin{DoxyCompactList}\small\item\em Procedure to do optimization. \end{DoxyCompactList}\item 
+int \hyperlink{class_d_f_p_1_1_compiler_a42794e01b0341cf94ef42c1d783ba199}{print} (std\+::string out\+\_\+file\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Procedure to print out the optimized D\+FP. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \hyperlink{class_d_f_p_1_1_compiler_a1c91460b5beaebb3f657eeb639734f35}{file\+\_\+name}
+\item 
+\hyperlink{class_d_f_p_1_1_program}{Program} $\ast$ \hyperlink{class_d_f_p_1_1_compiler_aba7a515032df6ac78a634d71e7cf41c6}{dfp}
+\item 
+std\+::vector$<$ \hyperlink{class_d_f_p_1_1_optimizer}{Optimizer} $\ast$ $>$ \hyperlink{class_d_f_p_1_1_compiler_a6f14e4f15a69a0f4c3d2c9327d60c0a5}{ops}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{class_d_f_p_1_1_compiler}{Compiler} class. Including several functions to finish all the compilation passes. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{D\+F\+P\+::\+Compiler@{D\+F\+P\+::\+Compiler}!Compiler@{Compiler}}
+\index{Compiler@{Compiler}!D\+F\+P\+::\+Compiler@{D\+F\+P\+::\+Compiler}}
+\subsubsection[{\texorpdfstring{Compiler(std\+::string file\+\_\+name)}{Compiler(std::string file_name)}}]{\setlength{\rightskip}{0pt plus 5cm}D\+F\+P\+::\+Compiler\+::\+Compiler (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{file\+\_\+name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_d_f_p_1_1_compiler_a50b7375fef9b5f9f911ba37852195467}{}\label{class_d_f_p_1_1_compiler_a50b7375fef9b5f9f911ba37852195467}
+
+
+Constructor. 
+
+This constructor only \char`\"{}caches\char`\"{} the input file name. And also initialize a list of optimizers that will be applied later. 
+\begin{DoxyParams}{Parameters}
+{\em file\+\_\+name} & the input file \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{D\+F\+P\+::\+Compiler@{D\+F\+P\+::\+Compiler}!compile@{compile}}
+\index{compile@{compile}!D\+F\+P\+::\+Compiler@{D\+F\+P\+::\+Compiler}}
+\subsubsection[{\texorpdfstring{compile()}{compile()}}]{\setlength{\rightskip}{0pt plus 5cm}int D\+F\+P\+::\+Compiler\+::compile (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_d_f_p_1_1_compiler_a79f611dd27bff14c67741c5d305d95b2}{}\label{class_d_f_p_1_1_compiler_a79f611dd27bff14c67741c5d305d95b2}
+
+
+Procedure to compile the input D\+FP codes. 
+
+The compile output will be stored in $\ast$dfp for futher optimization. \begin{DoxyReturn}{Returns}
+error code 
+\end{DoxyReturn}
+\index{D\+F\+P\+::\+Compiler@{D\+F\+P\+::\+Compiler}!optimize@{optimize}}
+\index{optimize@{optimize}!D\+F\+P\+::\+Compiler@{D\+F\+P\+::\+Compiler}}
+\subsubsection[{\texorpdfstring{optimize()}{optimize()}}]{\setlength{\rightskip}{0pt plus 5cm}int D\+F\+P\+::\+Compiler\+::optimize (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_d_f_p_1_1_compiler_aadebebf9f19ef17f4f60c7c147712c9e}{}\label{class_d_f_p_1_1_compiler_aadebebf9f19ef17f4f60c7c147712c9e}
+
+
+Procedure to do optimization. 
+
+Futher process on stored \hyperlink{class_d_f_p_1_1_program}{Program} $\ast$dfp. \begin{DoxyReturn}{Returns}
+error code 
+\end{DoxyReturn}
+\index{D\+F\+P\+::\+Compiler@{D\+F\+P\+::\+Compiler}!print@{print}}
+\index{print@{print}!D\+F\+P\+::\+Compiler@{D\+F\+P\+::\+Compiler}}
+\subsubsection[{\texorpdfstring{print(std\+::string out\+\_\+file\+\_\+name)}{print(std::string out_file_name)}}]{\setlength{\rightskip}{0pt plus 5cm}int D\+F\+P\+::\+Compiler\+::print (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{out\+\_\+file\+\_\+name}
+\end{DoxyParamCaption}
+)}\hypertarget{class_d_f_p_1_1_compiler_a42794e01b0341cf94ef42c1d783ba199}{}\label{class_d_f_p_1_1_compiler_a42794e01b0341cf94ef42c1d783ba199}
+
+
+Procedure to print out the optimized D\+FP. 
+
+A formatted D\+FP program will be printed to out\+\_\+file\+\_\+name. 
+\begin{DoxyParams}{Parameters}
+{\em out\+\_\+file\+\_\+name} & file name for output \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+error code 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\index{D\+F\+P\+::\+Compiler@{D\+F\+P\+::\+Compiler}!dfp@{dfp}}
+\index{dfp@{dfp}!D\+F\+P\+::\+Compiler@{D\+F\+P\+::\+Compiler}}
+\subsubsection[{\texorpdfstring{dfp}{dfp}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Program}$\ast$ D\+F\+P\+::\+Compiler\+::dfp}\hypertarget{class_d_f_p_1_1_compiler_aba7a515032df6ac78a634d71e7cf41c6}{}\label{class_d_f_p_1_1_compiler_aba7a515032df6ac78a634d71e7cf41c6}
+Compiled D\+FG data structure. \index{D\+F\+P\+::\+Compiler@{D\+F\+P\+::\+Compiler}!file\+\_\+name@{file\+\_\+name}}
+\index{file\+\_\+name@{file\+\_\+name}!D\+F\+P\+::\+Compiler@{D\+F\+P\+::\+Compiler}}
+\subsubsection[{\texorpdfstring{file\+\_\+name}{file_name}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string D\+F\+P\+::\+Compiler\+::file\+\_\+name}\hypertarget{class_d_f_p_1_1_compiler_a1c91460b5beaebb3f657eeb639734f35}{}\label{class_d_f_p_1_1_compiler_a1c91460b5beaebb3f657eeb639734f35}
+Input D\+FP codes file name \index{D\+F\+P\+::\+Compiler@{D\+F\+P\+::\+Compiler}!ops@{ops}}
+\index{ops@{ops}!D\+F\+P\+::\+Compiler@{D\+F\+P\+::\+Compiler}}
+\subsubsection[{\texorpdfstring{ops}{ops}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<${\bf Optimizer} $\ast$$>$ D\+F\+P\+::\+Compiler\+::ops}\hypertarget{class_d_f_p_1_1_compiler_a6f14e4f15a69a0f4c3d2c9327d60c0a5}{}\label{class_d_f_p_1_1_compiler_a6f14e4f15a69a0f4c3d2c9327d60c0a5}
+Optimizers that will applied here 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/dfp.\+hh\item 
+src/dfp.\+cc\end{DoxyCompactItemize}

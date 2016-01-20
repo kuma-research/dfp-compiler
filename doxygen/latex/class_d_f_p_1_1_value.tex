@@ -1,0 +1,101 @@
+\hypertarget{class_d_f_p_1_1_value}{}\section{D\+FP\+:\+:Value Class Reference}
+\label{class_d_f_p_1_1_value}\index{D\+F\+P\+::\+Value@{D\+F\+P\+::\+Value}}
+
+
+\hyperlink{class_d_f_p_1_1_value}{Value} stores the elements in each \hyperlink{class_d_f_p_1_1_node}{Node}\textquotesingle{}s input list.  
+
+
+
+
+{\ttfamily \#include $<$dfp\+\_\+program.\+hh$>$}
+
+Inheritance diagram for D\+FP\+:\+:Value\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_d_f_p_1_1_value}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{class_d_f_p_1_1_value_ab50504401cc3c884a5c6eb8708f8a214}{Type} \{ \hyperlink{class_d_f_p_1_1_value_ab50504401cc3c884a5c6eb8708f8a214a0a8aa2cb5add38d33229c160220a5456}{Int\+Type}, 
+\hyperlink{class_d_f_p_1_1_value_ab50504401cc3c884a5c6eb8708f8a214a07b832a0a41fd9d2402d688010a733d6}{Str\+Type}
+ \}\begin{DoxyCompactList}\small\item\em An Enum for \hyperlink{class_d_f_p_1_1_value}{Value} object type. \end{DoxyCompactList}
+\item 
+typedef std\+::vector$<$ \hyperlink{class_d_f_p_1_1_value}{Value} $\ast$ $>$ \hyperlink{class_d_f_p_1_1_value_a2ca981be3c47c7d23213c08379d3c947}{valuelist\+\_\+t}\hypertarget{class_d_f_p_1_1_value_a2ca981be3c47c7d23213c08379d3c947}{}\label{class_d_f_p_1_1_value_a2ca981be3c47c7d23213c08379d3c947}
+
+\begin{DoxyCompactList}\small\item\em A list of pointers to \hyperlink{class_d_f_p_1_1_value}{Value} objects. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_d_f_p_1_1_value_ab4bc39c8d0e04a5adf709e9b339ae930}{Value} (\hyperlink{class_d_f_p_1_1_token}{Token} $\ast$\hyperlink{class_d_f_p_1_1_value_a4cfafb890922feafab6d842a85812d10}{token}, \hyperlink{class_d_f_p_1_1_value_ab50504401cc3c884a5c6eb8708f8a214}{Type} \hyperlink{class_d_f_p_1_1_value_ae2c49913c035b9400361438ef5fe0f8e}{type})
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_d_f_p_1_1_token}{Token} $\ast$ \hyperlink{class_d_f_p_1_1_value_a4cfafb890922feafab6d842a85812d10}{token}
+\item 
+\hyperlink{class_d_f_p_1_1_value_ab50504401cc3c884a5c6eb8708f8a214}{Type} \hyperlink{class_d_f_p_1_1_value_ae2c49913c035b9400361438ef5fe0f8e}{type}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, const \hyperlink{class_d_f_p_1_1_value}{Value} \&v)\hypertarget{class_d_f_p_1_1_value_ad29db86c4a2dec5bc8d0006031b07211}{}\label{class_d_f_p_1_1_value_ad29db86c4a2dec5bc8d0006031b07211}
+
+\item 
+bool {\bfseries operator==} (const \hyperlink{class_d_f_p_1_1_value}{Value} \&v1, const \hyperlink{class_d_f_p_1_1_value}{Value} \&v2)\hypertarget{class_d_f_p_1_1_value_afd4eae14a112344d5be0a51bd913941c}{}\label{class_d_f_p_1_1_value_afd4eae14a112344d5be0a51bd913941c}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_d_f_p_1_1_value}{Value} stores the elements in each \hyperlink{class_d_f_p_1_1_node}{Node}\textquotesingle{}s input list. 
+
+This class has design defects, it should be better with templates 
+
+\subsection{Member Enumeration Documentation}
+\index{D\+F\+P\+::\+Value@{D\+F\+P\+::\+Value}!Type@{Type}}
+\index{Type@{Type}!D\+F\+P\+::\+Value@{D\+F\+P\+::\+Value}}
+\subsubsection[{\texorpdfstring{Type}{Type}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf D\+F\+P\+::\+Value\+::\+Type}}\hypertarget{class_d_f_p_1_1_value_ab50504401cc3c884a5c6eb8708f8a214}{}\label{class_d_f_p_1_1_value_ab50504401cc3c884a5c6eb8708f8a214}
+
+
+An Enum for \hyperlink{class_d_f_p_1_1_value}{Value} object type. 
+
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{Int\+Type@{Int\+Type}!D\+F\+P\+::\+Value@{D\+F\+P\+::\+Value}}\index{D\+F\+P\+::\+Value@{D\+F\+P\+::\+Value}!Int\+Type@{Int\+Type}}\item[{\em 
+Int\+Type\hypertarget{class_d_f_p_1_1_value_ab50504401cc3c884a5c6eb8708f8a214a0a8aa2cb5add38d33229c160220a5456}{}\label{class_d_f_p_1_1_value_ab50504401cc3c884a5c6eb8708f8a214a0a8aa2cb5add38d33229c160220a5456}
+}]This value is an integer \index{Str\+Type@{Str\+Type}!D\+F\+P\+::\+Value@{D\+F\+P\+::\+Value}}\index{D\+F\+P\+::\+Value@{D\+F\+P\+::\+Value}!Str\+Type@{Str\+Type}}\item[{\em 
+Str\+Type\hypertarget{class_d_f_p_1_1_value_ab50504401cc3c884a5c6eb8708f8a214a07b832a0a41fd9d2402d688010a733d6}{}\label{class_d_f_p_1_1_value_ab50504401cc3c884a5c6eb8708f8a214a07b832a0a41fd9d2402d688010a733d6}
+}]This value is a string \end{description}
+\end{Desc}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{D\+F\+P\+::\+Value@{D\+F\+P\+::\+Value}!Value@{Value}}
+\index{Value@{Value}!D\+F\+P\+::\+Value@{D\+F\+P\+::\+Value}}
+\subsubsection[{\texorpdfstring{Value(\+Token $\ast$token, Type type)}{Value(Token *token, Type type)}}]{\setlength{\rightskip}{0pt plus 5cm}D\+F\+P\+::\+Value\+::\+Value (
+\begin{DoxyParamCaption}
+\item[{{\bf Token} $\ast$}]{token, }
+\item[{{\bf Type}}]{type}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_d_f_p_1_1_value_ab4bc39c8d0e04a5adf709e9b339ae930}{}\label{class_d_f_p_1_1_value_ab4bc39c8d0e04a5adf709e9b339ae930}
+
+
+Constructor. 
+
+Takes a token and assign the type 
+
+\subsection{Member Data Documentation}
+\index{D\+F\+P\+::\+Value@{D\+F\+P\+::\+Value}!token@{token}}
+\index{token@{token}!D\+F\+P\+::\+Value@{D\+F\+P\+::\+Value}}
+\subsubsection[{\texorpdfstring{token}{token}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Token}$\ast$ D\+F\+P\+::\+Value\+::token}\hypertarget{class_d_f_p_1_1_value_a4cfafb890922feafab6d842a85812d10}{}\label{class_d_f_p_1_1_value_a4cfafb890922feafab6d842a85812d10}
+\hyperlink{class_d_f_p_1_1_token}{Token} for this value, could be Int or String \index{D\+F\+P\+::\+Value@{D\+F\+P\+::\+Value}!type@{type}}
+\index{type@{type}!D\+F\+P\+::\+Value@{D\+F\+P\+::\+Value}}
+\subsubsection[{\texorpdfstring{type}{type}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Type} D\+F\+P\+::\+Value\+::type}\hypertarget{class_d_f_p_1_1_value_ae2c49913c035b9400361438ef5fe0f8e}{}\label{class_d_f_p_1_1_value_ae2c49913c035b9400361438ef5fe0f8e}
+Type for this \hyperlink{class_d_f_p_1_1_value}{Value}, could be Int\+Type or Str\+Type 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/dfp\+\_\+program.\+hh\end{DoxyCompactItemize}
