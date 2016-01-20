@@ -16,7 +16,7 @@ void Parser::match(int t) {
   }
 }
 
-DFGraph *Parser::program() {
+Program *Parser::program() {
   Graph *g;
   Edge *e;
 
@@ -26,7 +26,7 @@ DFGraph *Parser::program() {
   while ((e = edge()) != NULL) {
     edges.push_back(e);
   }
-  return new DFGraph(graphs, edges);
+  return new Program(graphs, edges);
 }
 
 Graph *Parser::graph() {
@@ -39,6 +39,14 @@ Graph *Parser::graph() {
     match('}'); // ended curly braces
     match(';');
     Graph *g = new Graph(((Word *)tok)->lexeme, nl);
+    if (nl.size() != g->nt.size()) {
+      fprintf(stderr, "Fatal: same node name repeated\n");
+      exit(1);
+    }
+    if (!g->validate()) {
+      fprintf(stderr, "Fatal: unconnected nodes in graph %s\n", g->id.c_str());
+      exit(1);
+    }
     return g;
   } else {
     return NULL;
@@ -60,12 +68,26 @@ Node *Parser::node() {
     NodeType ntype = Node::tag2type((Tag)look->tag);
     move(); // This is an InNode
     Token *tok = look;
+    string_t id = ((Word *)tok)->lexeme;
     match(ID);
     match('[');
     valuelist_t vl = valuelist();
+
+    // check value list validity
+    if (ntype == In && vl.size() > 0) {
+      fprintf(stderr, "Error: Input node %s should have no input value\n",
+              id.c_str());
+      exit(1);
+    } else if (ntype == Out && vl.size() != 1) {
+      fprintf(stderr, "Error: Output node %s should be unary.\n", id.c_str());
+      exit(1);
+    } else if (ntype != In && ntype != Out && vl.size() != 2) {
+      fprintf(stderr, "Error: Binary node %s should be binary.\n", id.c_str());
+      exit(1);
+    }
     match(']');
     match(';');
-    return new Node(ntype, ((Word *)tok)->lexeme, vl);
+    return new Node(ntype, id, vl);
   } else {
     return NULL;
   }
@@ -114,10 +136,22 @@ Edge *Parser::edge() {
 
     Graph *src_graph = graphs[src_graph_id];
     Graph *dst_graph = graphs[dst_graph_id];
-    Node *src_node = src_graph->nt[src_node_id];
-    Node *dst_node = dst_graph->nt[dst_node_id];
+    if (src_graph != NULL && dst_graph != NULL) {
+      Node *src_node = src_graph->nt[src_node_id];
+      Node *dst_node = dst_graph->nt[dst_node_id];
 
-    return new Edge(src_graph, src_node, dst_graph, dst_node);
+      Edge *e = new Edge(src_graph, src_node, dst_graph, dst_node);
+      if (!e->validate()) {
+        fprintf(stderr, "Fatal: Edge is invalid, line %d\n", Lexer::line);
+        exit(1);
+      } else {
+        return e;
+      }
+    } else {
+      fprintf(stderr, "Fatal: Edge has invalid graph id, line %d\n",
+              Lexer::line);
+      exit(1);
+    }
   } else {
     return NULL;
   }

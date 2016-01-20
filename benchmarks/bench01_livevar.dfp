@@ -1,0 +1,11 @@
+
+dfg g1 {
+  In x1 [];
+  In x2 [];
+
+  Add t1 [x1 1];
+  Add t2 [x2 2];
+  Add t3 [t1 x2];
+  Out o1 [t1];
+  Out o2 [t2];
+};

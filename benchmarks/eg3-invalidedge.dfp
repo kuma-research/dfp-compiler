@@ -1,0 +1,12 @@
+
+dfg g1 {
+  In a[];
+  Out b[a];
+};
+
+dfg g2 {
+  In a[];
+  Out b[a];
+};
+
+g1[a] -> g2[b];

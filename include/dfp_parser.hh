@@ -17,7 +17,7 @@ public:
   void match(int t);
 
   // actions
-  DFGraph *program();
+  Program *program();
   Graph *graph();
   Node *node();
   nodelist_t nodelist();

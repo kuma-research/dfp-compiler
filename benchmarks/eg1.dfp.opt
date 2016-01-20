@@ -1,10 +1,10 @@
-dfg d1	{
+dfg 	d1	{
   Add	b1	[ t 3 ];
   Out	o	[ b1 ];
   In	t	[ ];
 };
 
-dfg d2	{
+dfg 	d2	{
   Mult	b1	[ x 3 ];
   Out	o	[ b1 ];
   In	x	[ ];

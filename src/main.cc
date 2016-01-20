@@ -37,6 +37,10 @@ int main(int argc, char *argv[]) {
     fprintf(stderr, "Error: compile error %d\n", r);
     exit(1);
   }
+  if ((r = compiler.optimize())) {
+    fprintf(stderr, "Error: optimization error %d\n", r);
+    exit(1);
+  }
   if ((r = compiler.print(file_name + ".opt"))) {
     fprintf(stderr, "Error: output error %d\n", r);
     exit(1);
