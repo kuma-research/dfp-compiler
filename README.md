@@ -50,6 +50,8 @@ Options:
 
 ## Test and Benchmarks
 
+Just run `make bench`.
+
 There're several benchmarks and examples in the `benchmarks/` directory. Fill free to try them.
 
 And a brief optimization conclusion will be appended:

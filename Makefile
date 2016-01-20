@@ -3,6 +3,7 @@ SRC=src
 BIN=bin
 LIB=lib
 INCLUDE=include
+BENCH=benchmarks
 
 CC=gcc
 CFLAGS=-I$(INCLUDE)
@@ -34,8 +35,14 @@ dfp: $(OBJS)
 all: dfp
 
 .PHONY:
-	clean
+	clean bench
 
 clean:
 	rm -f $(BIN)/*.o
 	rm -f dfp
+
+bench: dfp
+	./dfp -f $(BENCH)/bench01_livevar.dfp
+	./dfp -f $(BENCH)/bench02_defs.dfp
+	./dfp -f $(BENCH)/bench03_const.dfp
+	./dfp -f $(BENCH)/bench04_general.dfp
